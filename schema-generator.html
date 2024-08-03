@@ -1,0 +1,222 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #121212;
+        color: #ffffff;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 800px;
+        background: #1e1e1e;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+
+    input,
+    button,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        background: #2c2c2c;
+        border: 1px solid #555;
+        border-radius: 4px;
+        color: #ffffff;
+    }
+
+    button {
+        background: #007bff;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #0056b3;
+    }
+
+    #schema-output {
+        margin-top: 20px;
+    }
+
+    pre {
+        background: #2c2c2c;
+        padding: 10px;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+
+    .banner1btn .bannertitle1-528f025 {
+        max-width: 800px;
+        font-size: 4rem;
+        font-weight: 200;
+        color: #ffffff;
+        margin-top: 80px;
+    }
+
+    .banner1btn .bannersubtitle1-528f025 {
+        max-width: 800px;
+        font-size: 2.5rem;
+        font-weight: 200;
+        color: #ffffff;
+        margin: 12px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: initial;
+    }
+
+    .banner1btn_button-528f025 {
+        padding: 12px;
+        margin: 12px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #4466aa;
+        color: #ffffff;
+        font-weight: bold;
+        border-radius: 6px;
+        border: solid 2px #ffffff;
+    }
+
+    .banner1btn_overlay-528f025 {
+        width: 100%;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, .4);
+        text-align: center;
+    }
+
+    .info-528f025 {
+        color: #fff;
+    }
+</style>
+
+<div style="clear:left" id="sepS" class="edsep"></div>
+<div id="newdiv_insert_n3">
+    <div id="elemtype-Banner_1Btn" option_count="2"></div>
+    <section class="banner1btn">
+        <div eclick="b1" id="n3at_0_imageid-b1" data-id="n3at_0_imageid-b1" class="full-background"
+            style="background: url('https://files.sysers.com/cp/upload/drs-dev-jonathan/gallery/full/pure-black-background-f82588d3.jpg') center top / cover no-repeat fixed transparent;">
+            <div class="container">
+                <br><br><br>
+                <div class="banner1btn_overlay banner1btn_overlay-528f025">
+                    <div id="n3at_0_textid-bt2" data-id="n3at_0_textid-bt2"
+                        class="bannersubtitle1 bannersubtitle1-528f025 h4">Schema Generator</div>
+                    <br>
+                    <!-- <a  id='n3at_0_textid-m1' data-id='n3at_0_textid-m1' class="btn kb_button_white" style='margin-right:0px;' href="/link1">Link</a> -->
+                    <br><br>
+                </div>
+                <br><br><br>
+            </div>
+        </div>
+    </section>
+</div>
+<div style="clear:left" id="sepDn3" class="edsep"></div>
+<div style="clear:left" id="sepDn2" class="edsep"></div>
+<div class="container">
+    <h1>Website Schema Generator</h1>
+    <form id="schema-form">
+        <label for="site-name">Site Name</label>
+        <input type="text" id="site-name" placeholder="Enter site name" required>
+
+        <label for="url">URL</label>
+        <input type="url" id="url" placeholder="Enter URL" required>
+
+        <label for="image">Image URL</label>
+        <input type="url" id="image" placeholder="Enter image URL" required>
+
+        <label for="business-name">Business Name</label>
+        <input type="text" id="business-name" placeholder="Enter business name" required>
+
+        <label for="description">Description</label>
+        <textarea id="description" rows="4" placeholder="Enter description" required></textarea>
+
+        <label for="telephone">Telephone</label>
+        <input type="tel" id="telephone" placeholder="Enter telephone number" required>
+
+        <label for="address">Address</label>
+        <textarea id="address" rows="2" placeholder="Enter address" required></textarea>
+
+        <label for="slogan">Slogan</label>
+        <input type="text" id="slogan" placeholder="Enter slogan" required>
+
+        <label for="payment-accepted">Payment Accepted (comma-separated)</label>
+        <input type="text" id="payment-accepted" placeholder="Enter accepted payment methods" required>
+
+        <label for="same-as">Same As (comma-separated URLs)</label>
+        <input type="text" id="same-as" placeholder="Enter social profile URLs" required>
+
+        <label for="opening-hours">Opening Hours (comma-separated days, e.g., Monday,Tuesday)</label>
+        <input type="text" id="opening-hours" placeholder="Enter opening days" required>
+
+        <label for="opens">Opens At</label>
+        <input type="time" id="opens" required>
+
+        <label for="closes">Closes At</label>
+        <input type="time" id="closes" required>
+
+        <button type="submit">Generate Schema</button>
+    </form>
+
+    <div id="schema-output"></div>
+</div>
+
+<script>
+    document.getElementById('schema-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const siteName = document.getElementById('site-name').value.trim();
+        const url = document.getElementById('url').value.trim();
+        const image = document.getElementById('image').value.trim();
+        const businessName = document.getElementById('business-name').value.trim();
+        const description = document.getElementById('description').value.trim();
+        const telephone = document.getElementById('telephone').value.trim();
+        const address = document.getElementById('address').value.trim();
+        const slogan = document.getElementById('slogan').value.trim();
+        const paymentAccepted = document.getElementById('payment-accepted').value.trim().split(',');
+        const sameAs = document.getElementById('same-as').value.trim().split(',');
+        const openingHours = document.getElementById('opening-hours').value.trim().split(',');
+        const opens = document.getElementById('opens').value.trim();
+        const closes = document.getElementById('closes').value.trim();
+
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": businessName,
+            "description": description,
+            "telephone": telephone,
+            "address": address,
+            "url": url,
+            "image": image,
+            "sameAs": sameAs,
+            "paymentAccepted": paymentAccepted,
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": openingHours,
+                    "opens": opens,
+                    "closes": closes
+                }
+            ],
+            "slogan": slogan
+        };
+
+        document.getElementById('schema-output').innerHTML = '<pre>' + JSON.stringify(schema, null, 2) + '</pre>';
+
+        document.getElementById('schema-form').reset();
+    });
+</script>
