@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web App for JSON Schema Generation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        #projects-list {
+            margin-top: 20px;
+        }
+
+        #projects-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Web App for JSON Schema Generation</h1>
+    <form id="project-form">
+        <div class="form-group">
+            <label for="project-name">Project Name</label>
+            <input type="text" id="project-name" name="project-name" required>
+        </div>
+        <div class="form-group">
+            <label for="project-description">Project Description</label>
+            <textarea id="project-description" name="project-description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="seo-title">SEO Title</label>
+            <input type="text" id="seo-title" name="seo-title" required>
+        </div>
+        <div class="form-group">
+            <label for="seo-description">SEO Description</label>
+            <textarea id="seo-description" name="seo-description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="seo-keywords">SEO Keywords</label>
+            <input type="text" id="seo-keywords" name="seo-keywords" required>
+        </div>
+        <button type="submit">Save Project</button>
+    </form>
+
+    <h2>Stored Projects</h2>
+    <ul id="projects-list"></ul>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
