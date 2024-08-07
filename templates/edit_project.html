@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Project: {{ project['name'] }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
+
 <body>
     <div class="container">
         <h1>Edit Project: {{ project['name'] }}</h1>
@@ -50,7 +52,7 @@
             <h2>Generated Schema:</h2>
             <pre id="schemaOutput"></pre>
         </div>
-        
+
         <h2>Landing Pages</h2>
         <form action="{{ url_for('add_landing_page', project_id=project_id) }}" method="POST">
             <div class="form-group">
@@ -63,7 +65,7 @@
             </div>
             <button type="submit" class="button">Add Landing Page</button>
         </form>
-        
+
         <h3>Existing Landing Pages:</h3>
         <ul id="landingPagesList">
             {% for page in project['landing_pages'] %}
@@ -73,4 +75,5 @@
     </div>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
+
 </html>
