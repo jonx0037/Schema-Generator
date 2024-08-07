@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Projects</h1>
+        <a href="{{ url_for('create_project') }}" class="button">Create New Project</a>
+        <ul class="project-list">
+            {% for project_id, project in projects.items() %}
+            <li>
+                <a href="{{ url_for('edit_project', project_id=project_id) }}">{{ project['name'] }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
