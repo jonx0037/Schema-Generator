@@ -101,5 +101,5 @@ def bad_request_error(error):
     return jsonify({"error": str(error)}), 400
 
 if __name__ == '__main__':
-    print("Server running on http://127.0.0.1:5001/")
-    app.run(debug=True, port=5001)
+    print("Server running on http://127.0.0.1:5001/ and http://[::1]:5001/")
+    app.run(debug=True, port=5001, host='0.0.0.0')
