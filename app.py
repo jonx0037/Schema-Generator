@@ -101,4 +101,5 @@ def bad_request_error(error):
     return jsonify({"error": str(error)}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True)  # Set debug to True for development to see detailed error messages
+    print("Server running on http://127.0.0.1:5001/")
+    app.run(debug=True, port=5001)
